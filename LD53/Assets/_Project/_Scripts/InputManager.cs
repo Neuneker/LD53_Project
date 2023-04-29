@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +21,16 @@ public class InputManager : MonoBehaviour
     }
 
     #region Look
-    public Vector2 GetLook()
+    public Vector2 GetLookInput()
     {
-        //Vector2 inputVector = playerInputActions.Player.Look.ReadValue<Vector2>();
         Vector2 inputVector = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        Debug.Log(inputVector);
         return inputVector;
     }
     #endregion
+
+    public Vector2 GetMoveInput()
+    {
+        Vector2 inputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        return inputVector;
+    }
 }
