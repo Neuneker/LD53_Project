@@ -30,8 +30,15 @@ public class CameraLook : MonoBehaviour
     public float lookDeadzone = 0.1f;
 
     [SerializeField][Range(0.01f, 2.00f)] private float _lookSpeed = 0.5f;
+    [SerializeField] private float _lookMultiplier = 0.5f;
+    public float LookSpeed => _lookSpeed;
     [SerializeField] private bool _invertMouseDirection;
 
+
+    public void SetLookSpeed(float value)
+    {
+        _lookSpeed = value;
+    }
 
     private void LateUpdate()
     {
@@ -44,7 +51,7 @@ public class CameraLook : MonoBehaviour
         if (_input.GetLookInput().sqrMagnitude >= lookDeadzone && !lockCameraPosition)
         {
             //Don't multiply mouse input by Time.deltaTime;
-            float deltaTimeMultiplier = _lookSpeed;//1;//IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
+            float deltaTimeMultiplier = _lookSpeed * _lookMultiplier * Time.deltaTime;//1;//IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
             _cinemachineTargetYaw += _input.GetLookInput().x * deltaTimeMultiplier;
             _cinemachineTargetPitch += _input.GetLookInput().y * deltaTimeMultiplier * (_invertMouseDirection ? 1 : -1);

@@ -28,3 +28,4 @@ option to change sensetivity
 Add Inveunerability Powerup
 Add Turbo Powerup
 Add Jump Powerup
+TimeScale Powerup should phase in and out (i.e. lerp the slowdown

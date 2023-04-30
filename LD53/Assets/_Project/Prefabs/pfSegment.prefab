@@ -2147,7 +2147,7 @@ GameObject:
   - component: {fileID: 6791355183909054122}
   - component: {fileID: 666904567471015658}
   - component: {fileID: 1207543932596926219}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: SidewalkRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4322,7 +4322,7 @@ GameObject:
   - component: {fileID: 7550403760843552252}
   - component: {fileID: 7549630414136100157}
   - component: {fileID: 3717894745595896391}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: SidewalkLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}

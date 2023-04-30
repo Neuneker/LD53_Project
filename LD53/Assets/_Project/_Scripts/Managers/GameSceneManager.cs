@@ -19,7 +19,7 @@ public class GameSceneManager : MonoBehaviour
         if (Input.GetKeyDown(_resetScene)) ResetLevel();
     }
 
-    internal void ResetLevel()
+    public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

@@ -16,6 +16,7 @@ public class ThrowingManger : MonoBehaviour
     [SerializeField] private bool _relativeThrowing;
     [SerializeField] private PowerBarManager _powerBarManager;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class ThrowingManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) return;
+
         if (Input.GetMouseButton(0))
         {
             _throwForce += Time.deltaTime * _throwForceIncreaseMultiplier;

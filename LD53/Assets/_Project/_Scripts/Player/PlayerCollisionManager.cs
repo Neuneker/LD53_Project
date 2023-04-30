@@ -11,7 +11,10 @@ public class PlayerCollisionManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        _gameSceneManager.ResetLevel();
+        if (_obstaclesLayer == (_obstaclesLayer | (1 << collision.gameObject.layer)))
+        {
+            _gameSceneManager.ResetLevel();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
