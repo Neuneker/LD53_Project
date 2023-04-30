@@ -23,6 +23,7 @@ public class Collectable : MonoBehaviour
             _collectable = Instantiate(_powerup.collectable, _spawnPoints[rand].position, Quaternion.identity, this.transform).transform;
             _spawnPoints.RemoveAt(rand);
         }
+        if (transform.position.z < 50) return;
         if (Random.value < _obstacleSpawnRate)
         {
             int rand = Random.Range(0, _spawnPoints.Count);
@@ -30,6 +31,7 @@ public class Collectable : MonoBehaviour
             Instantiate(_obstaclesList[randObstacle], _spawnPoints[rand].position, Quaternion.identity);
             _spawnPoints.RemoveAt(rand);
         }
+        if (transform.position.z < 100) return;
         if (Random.value < _obstacleSpawnRate)
         {
             int rand = Random.Range(0, _spawnPoints.Count);

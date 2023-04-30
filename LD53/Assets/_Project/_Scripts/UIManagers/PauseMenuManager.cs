@@ -20,15 +20,14 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Awake()
     {
-        OnSFXUpdate(PlayerPrefs.GetFloat("SFXVolume"));
-        OnVolumeUpdate(PlayerPrefs.GetFloat("MusicVolume"));
-        OnSensetivityUpdate(PlayerPrefs.GetFloat("lookSpeed"));
+        _pauseMenu.SetActive(true);
+        //OnSFXUpdate(PlayerPrefs.GetFloat("SFXVolume"));
+        //OnVolumeUpdate(PlayerPrefs.GetFloat("MusicVolume"));
+        //OnSensetivityUpdate(PlayerPrefs.GetFloat("lookSpeed"));
 
         _sensetivitySlider.value = PlayerPrefs.GetFloat("lookSpeed");
-        _audioMixer.GetFloat("SFXVolume", out float sfxValue);
-        _sfxSlider.value = (sfxValue + 80) / 100;
-        _audioMixer.GetFloat("SFXVolume", out float musicValue);
-        _musicSlider.value = (musicValue + 80) / 100;
+        _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
 
         if (_pauseMenu.activeSelf)
         {
@@ -70,14 +69,14 @@ public class PauseMenuManager : MonoBehaviour
     public void OnSFXUpdate(float value)
     {
         if (value == 0) _audioMixer.SetFloat("SFXVolume", -80);
-        _audioMixer.SetFloat("SFXVolume", Mathf.Lerp(-40, 20, value));
+        else _audioMixer.SetFloat("SFXVolume", Mathf.Lerp(-40, 20, value));
         PlayerPrefs.SetFloat("SFXVolume", value);
 
     }
     public void OnVolumeUpdate(float value)
     {
         if (value == 0) _audioMixer.SetFloat("MusicVolume", -80);
-        _audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-40, 20, value));
+        else _audioMixer.SetFloat("MusicVolume", Mathf.Lerp(-40, 20, value));
         PlayerPrefs.SetFloat("MusicVolume", value);
 
     }

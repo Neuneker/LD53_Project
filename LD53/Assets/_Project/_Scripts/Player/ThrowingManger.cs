@@ -16,6 +16,7 @@ public class ThrowingManger : MonoBehaviour
     [SerializeField] private bool _relativeThrowing;
     [SerializeField] private PowerBarManager _powerBarManager;
 
+    [SerializeField] private Animator _animator;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,6 @@ public class ThrowingManger : MonoBehaviour
         _throwForce = _minThrowForce;
     }
 
-    float deltaTime = 0;
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +33,7 @@ public class ThrowingManger : MonoBehaviour
         {
             _throwForce += Time.deltaTime * _throwForceIncreaseMultiplier;
             _throwForce = Mathf.Clamp(_throwForce, _minThrowForce, _maxThrowForce);
+            _animator.SetBool("Charging", true);
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -43,8 +44,10 @@ public class ThrowingManger : MonoBehaviour
             
             if (_relativeThrowing) go.GetComponent<Rigidbody>().AddForce(GetComponent<Rigidbody>().velocity + (targetPosition * _throwForce), ForceMode.VelocityChange);
             else go.GetComponent<Rigidbody>().AddForce(targetPosition * _throwForce, ForceMode.VelocityChange);
+            go.GetComponent<NewspaperManager>().throwPower = (_throwForce - _minThrowForce) / (_maxThrowForce - _minThrowForce);
             _throwForce = _minThrowForce;
-            deltaTime = 0;
+            _animator.SetBool("Charging", false);
+
         }
 
         _powerBarManager.SetFillAmount((_throwForce - _minThrowForce) / (_maxThrowForce - _minThrowForce));
