@@ -1,0 +1,30 @@
+Brainstorming Ideas:
+Package delivery
+Egg Drop Delivery (ala LBT Egg drop game / Fantastic machines)
+Newspaper delivery
+Lemmings Style Game
+
+
+Game: Newspaper delivery
+Theme: Endless runner high octane newspaper delivery game
+Game Mechanics: Newspaper Throwing
+Bike Steering & Boosting
+Obstacle avoidance
+Time Dialation
+Include Shader for curved world like Animal Crossing
+
+
+
+Remaining tasks:
+Add shader for powerups (has to also allow for curved shader)
+Add shader for target
+Replace character model
+--improve turning
+add music
+add main menu
+add pause screen
+option to change sensetivity
+--Add Powerup collectables
+Add Inveunerability Powerup
+Add Turbo Powerup
+Add Jump Powerup
