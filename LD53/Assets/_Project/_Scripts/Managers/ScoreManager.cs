@@ -9,8 +9,13 @@ public class ScoreManager : MonoBehaviour
     
     public static ScoreManager singleton;
     [SerializeField] private TMPro.TextMeshProUGUI _scoreboard;
+    [SerializeField] private TMPro.TextMeshProUGUI _scoreboardGameOver;
 
     public UnityEvent<Transform> OnScore;
+    public UnityEvent OnStart;
+
+    public bool started = false;
+    public float timeSinceStart = 0;
 
     private void Awake()
     {
@@ -27,13 +32,19 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (started) timeSinceStart += Time.deltaTime;
     }
 
     public void AddScore(Transform targetThatScored)
     {
+        if (!started)
+        {
+            OnStart?.Invoke();
+            started = true;
+        }
         _score++;
         _scoreboard.text = _score.ToString();
+        _scoreboardGameOver.text = _score.ToString();
         OnScore?.Invoke(targetThatScored);
     }
 }

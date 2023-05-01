@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectable: {fileID: 5564193400272732653, guid: f1a2b3545e5b74d44a2caa17b23f407c,
     type: 3}
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 0a7d297395f82b34fb567c79a869087b, type: 3}
   go: {fileID: 4346506843158585886, guid: ca2ec2f4fc3ed624eac053fb05322d1e, type: 3}

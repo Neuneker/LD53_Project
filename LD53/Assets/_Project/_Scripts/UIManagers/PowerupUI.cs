@@ -9,10 +9,12 @@ public class PowerupUI : MonoBehaviour
     public void SetPowerup(Sprite sprite)
     {
         icon.sprite = sprite;
+        icon.gameObject.SetActive(true);
     }
 
     public void ClearPowerup()
     {
         icon.sprite = null;
+        icon.gameObject.SetActive(false);
     }
 }

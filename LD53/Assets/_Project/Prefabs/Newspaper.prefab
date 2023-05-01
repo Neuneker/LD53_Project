@@ -68,6 +68,8 @@ MonoBehaviour:
   audioSource: {fileID: 7258780201283926005}
   velocityForMaxVolume: 30
   throwPower: 40
+  partSystem: {fileID: 7291347103226790963, guid: 4e5028120e4cffc41ac1c6346c385dfb,
+    type: 3}
 --- !u!82 &7258780201283926005
 AudioSource:
   m_ObjectHideFlags: 0

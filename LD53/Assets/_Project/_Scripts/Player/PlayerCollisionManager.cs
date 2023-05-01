@@ -9,11 +9,15 @@ public class PlayerCollisionManager : MonoBehaviour
     [SerializeField] private LayerMask _powerupsLayer;
     [SerializeField] private LayerMask _obstaclesLayer;
 
+    public SkateboardMovement skateboardMovement;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (_obstaclesLayer == (_obstaclesLayer | (1 << collision.gameObject.layer)))
         {
-            _gameSceneManager.ResetLevel();
+            Destroy(collision.transform.root.gameObject);
+            skateboardMovement.ResetPlayer();
+            //_gameSceneManager.ResetLevel();
         }
     }
 

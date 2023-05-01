@@ -16,17 +16,17 @@ public class HouseSpawner : MonoBehaviour
         //SpawnHouse
         Instantiate(housePrefabs[Random.Range(0, housePrefabs.Length)], transform.position, transform.rotation, transform);
         //FindTargetSpawnPoints
-        if (Random.value > targetChance) return;
-        _spawnLocations = new List<Transform>();
-        foreach (Transform child in GetComponentsInChildren<Transform>())
-        {
-            if (child.tag == "targetSpawn")
-            {
-                _spawnLocations.Add(child);
-            }
-        }
+        //if (Random.value > targetChance) return;
+        //_spawnLocations = new List<Transform>();
+        //foreach (Transform child in GetComponentsInChildren<Transform>())
+        //{
+        //    if (child.tag == "targetSpawn")
+        //    {
+        //        _spawnLocations.Add(child);
+        //    }
+        //}
 
-        Instantiate(targetPrefab, _spawnLocations[Random.Range(0, _spawnLocations.Count)].position, Quaternion.identity, transform);
+        //Instantiate(targetPrefab, _spawnLocations[Random.Range(0, _spawnLocations.Count)].position, Quaternion.identity, transform);
 
     }
 

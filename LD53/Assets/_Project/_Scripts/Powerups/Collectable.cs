@@ -16,6 +16,7 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
+        if (!ScoreManager.singleton.started) return;
         if (Random.value < _powerUpSpawnRate)
         {
             int rand = Random.Range(0, _spawnPoints.Count);
@@ -23,7 +24,7 @@ public class Collectable : MonoBehaviour
             _collectable = Instantiate(_powerup.collectable, _spawnPoints[rand].position, Quaternion.identity, this.transform).transform;
             _spawnPoints.RemoveAt(rand);
         }
-        if (transform.position.z < 50) return;
+        if (ScoreManager.singleton.timeSinceStart < 10) return;
         if (Random.value < _obstacleSpawnRate)
         {
             int rand = Random.Range(0, _spawnPoints.Count);
@@ -31,7 +32,7 @@ public class Collectable : MonoBehaviour
             Instantiate(_obstaclesList[randObstacle], _spawnPoints[rand].position, Quaternion.identity);
             _spawnPoints.RemoveAt(rand);
         }
-        if (transform.position.z < 100) return;
+        if (ScoreManager.singleton.timeSinceStart < 25) return;
         if (Random.value < _obstacleSpawnRate)
         {
             int rand = Random.Range(0, _spawnPoints.Count);

@@ -14,6 +14,8 @@ public class NewspaperManager : MonoBehaviour
     public float velocityForMaxVolume;
     public float throwPower;
 
+    public GameObject partSystem;
+
     private void Awake()
     {
         
@@ -41,6 +43,8 @@ public class NewspaperManager : MonoBehaviour
         Debug.Log(other.name);
         //if (hasBeenScored) return;
         //hasBeenScored = true;
+        GameObject go = Instantiate(partSystem);
+        go.transform.position = other.transform.position;
         Destroy(other.gameObject);
         ScoreManager.singleton.AddScore(other.transform);
     }

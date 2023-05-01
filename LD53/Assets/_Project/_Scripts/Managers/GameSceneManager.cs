@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameSceneManager : MonoBehaviour
 {
-    [SerializeField] private KeyCode _resetScene;
+    //[SerializeField] private KeyCode _resetScene;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class GameSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(_resetScene)) ResetLevel();
+        //if (Input.GetKeyDown(_resetScene)) ResetLevel();
     }
 
     public void ResetLevel()

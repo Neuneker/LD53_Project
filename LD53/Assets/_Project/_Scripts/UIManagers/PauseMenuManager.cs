@@ -27,7 +27,7 @@ public class PauseMenuManager : MonoBehaviour
 
         _sensetivitySlider.value = PlayerPrefs.GetFloat("lookSpeed");
         _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
-        _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        //_musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
 
         if (_pauseMenu.activeSelf)
         {

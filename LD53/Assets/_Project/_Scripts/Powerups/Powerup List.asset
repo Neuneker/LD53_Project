@@ -15,3 +15,4 @@ MonoBehaviour:
   _powerupList:
   - {fileID: 11400000, guid: 182bbec357caa3543adc54b63d997a42, type: 2}
   - {fileID: 11400000, guid: 73b8a09413861a1449bef2f2a03b5f38, type: 2}
+  - {fileID: 11400000, guid: 4f930d43067c4724887931f1384c0d94, type: 2}
